@@ -1,0 +1,408 @@
+/* 
+  Frontend Mentor Project – Extension Manager Interface
+  Author: Hernán Coronel
+  Description: Main stylesheet including theming, responsive layout, 
+  light/dark modes, and component styling for extensions list.
+*/
+
+/* =======================
+   Root Variables
+   ======================= */
+
+:root {
+  /* Neutral Colors */
+  --bg-primary-light: hsl(217, 61%, 90%);
+  --secondary-color-light: hsl(200, 60%, 99%);
+  --neutral-100: hsl(0, 0%, 93%);
+  --neutral-300: hsl(0, 0%, 78%);
+  --neutral-600: hsl(226, 11%, 37%);
+  --bg-primary-dark: hsl(227, 75%, 14%);
+  --bg-secondary-dark: hsl(226, 25%, 17%);
+  --alternative-color-dark: hsl(225, 23%, 24%);
+
+  /* Accent Colors */
+  --red-light: hsl(3, 86%, 64%);
+  --red-medium: hsl(3, 71%, 56%);
+  --red-dark: hsl(3, 77%, 44%);
+
+  /* Gradients */
+  --gradient-light: linear-gradient(180deg, #ebf2fc 0%, #eef8f9 100%);
+  --gradient-dark: linear-gradient(180deg, #040918 0%, #091540 100%);
+
+  /* Typography */
+  --font-family: "Noto Sans", sans-serif;
+  --font-size: 16px;
+}
+
+/* =======================
+   Reset & Base Styles
+   ======================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html::-webkit-scrollbar {
+  background: transparent;
+}
+
+body {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--bg-primary-light);
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  padding-top: 20px;
+  gap: 20px;
+  overflow-y: scroll;
+  padding-bottom: 50px;
+}
+
+body::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for WebKit-based browsers */
+}
+
+/* =======================
+   Navigation Bar
+   ======================= */
+
+nav {
+  height: 60px;
+  min-height: 60px;
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--secondary-color-light);
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+#toggle-theme {
+  padding: 8px;
+  border: none;
+  border-radius: 10px;
+  background: var(--neutral-100); /* Neutral background for light mode toggle */
+}
+
+#logo {
+  color: var(--bg-primary-dark); /* Primary branding color */
+}
+
+/* =======================
+   Main Section Layout
+   ======================= */
+
+section {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    "header"
+    "content";
+  gap: 50px;
+}
+
+header {
+  grid-area: "header";
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 10px;
+  height: 100px;
+}
+
+header h1 {
+  font-size: 32px;
+  color: var(--bg-primary-dark);
+}
+
+/* =======================
+   Filter Buttons Section
+   ======================= */
+
+.state-extensions {
+  height: auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Filter Buttons Styles */
+.btn-all, .btn-active, .btn-inactive {
+  color: var(--bg-primary-dark);
+  background: var(--neutral-100);
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  font-weight: 600;
+  border: none;
+  border-radius: 25px;
+  padding: 12px 24px;
+}
+
+.extension-active {
+  color: var(--bg-primary-light);
+  background: var(--red-dark);
+}
+
+/* Global button interaction styles */
+button {
+  outline: none;
+  border: 3px solid transparent;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+button:focus {
+  border: 3px solid var(--red-dark) !important;
+}
+
+/* =======================
+   Main Content Grid
+   ======================= */
+
+main {
+  width: 100%;
+  display: grid;
+  grid-area: "content";
+  gap: 16px;
+  padding: 50px 0;
+}
+
+/* =======================
+   Extension Card Item
+   ======================= */
+
+.extension-item {
+  height: 200px;
+  width: 90%;
+  display: grid;
+  grid-template-columns: auto 1fr 1fr;
+  grid-template-rows: 1fr auto;
+  grid-template-areas:
+    "sidebar main main"
+    "footer footer footer";
+  background: var(--secondary-color-light);
+  border-radius: 20px;
+  padding: 20px;
+  gap: 10px;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.extension-item aside {
+  grid-area: sidebar;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+}
+
+.extension-item main {
+  grid-area: main;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: var(--neutral-600);
+  font-size: 18px;
+  padding: 0 10px;
+  justify-content: flex-start;
+}
+
+.extension-item main h3 {
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--bg-primary-dark);
+}
+
+.extension-item footer {
+  grid-area: footer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.remove-btn {
+  height: 40px;
+  width: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 32px;
+  border: 1px solid var(--bg-secondary-dark);
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* =======================
+   Toggle Switch for Status
+   ======================= */
+
+.container {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.switch input {
+  position: absolute;
+  opacity: 0; /* Hide the native checkbox */
+}
+
+.switch {
+  width: 45px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #bdb9a6;
+  border-radius: 20px;
+  position: relative;
+}
+
+.switch:hover {
+  cursor: pointer;
+}
+
+.switch div {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0.1em 0.3em rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.switch input:checked + div {
+  transform: translate(20px, -50%);
+}
+
+/* =======================
+   Dark Mode Styles
+   Applied by adding .dark class to <body>
+   ======================= */
+
+body.dark {
+  background: var(--gradient-dark);
+  color: var(--neutral-100);
+}
+
+body.dark #logo {
+  color: white;
+  fill: var(--bg-primary-dark);
+}
+
+body.dark h1 {
+  color: var(--bg-primary-light);
+}
+
+body.dark nav {
+  color: var(--neutral-300);
+  background: var(--alternative-color-dark);
+}
+
+body.dark #toggle-theme {
+  color: var(--neutral-300);
+  background: var(--bg-secondary-dark);
+}
+
+body.dark .btn-all,
+body.dark .btn-active,
+body.dark .btn-inactive {
+  color: var(--bg-primary-light);
+  background: var(--neutral-600);
+}
+
+body.dark .extension-active {
+  color: var(--bg-primary-light);
+  background: var(--red-dark);
+}
+
+body.dark .extension-item {
+  background: var(--alternative-color-dark);
+}
+
+body.dark .extension-item main h3 {
+  color: var(--secondary-color-light);
+}
+
+body.dark .extension-item main {
+  color: var(--neutral-300);
+}
+
+body.dark .remove-btn {
+  color: var(--neutral-300);
+  background: var(--alternative-color-dark);
+}
+
+/* =======================
+   Responsive Styles (Desktop)
+   ======================= */
+
+@media (min-width: 485px) {
+  body {
+    padding-top: 40px;
+    padding-bottom: 0;
+  }
+
+  nav {
+    height: 70px;
+    width: 80%;
+    padding: 14px;
+  }
+
+  header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 0;
+    width: 100%;
+    padding: 20px 0;
+    margin-top: 10px;
+  }
+
+  header h1 {
+    margin: 0;
+    flex-shrink: 1;
+    white-space: nowrap;
+  }
+
+  .state-extensions {
+    justify-content: flex-end;
+  }
+
+  section {
+    width: 80%;
+    padding-bottom: 100px;
+    gap: 20px;
+  }
+
+  main {
+    grid-template-columns: repeat(3, 1fr);
+    padding-bottom: 50px;
+  }
+
+  .extension-item {
+    width: 100%;
+  }
+}

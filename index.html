@@ -1,0 +1,63 @@
+<!--
+  Frontend Mentor – Browser Extensions Manager UI
+  Author: Hernán Coronel
+
+  Technologies:
+  - HTML5
+  - CSS3
+  - Vanilla JavaScript (ES6 modules)
+
+  Description:
+  This project implements a browser extensions manager UI.
+  Features include:
+  - Theme toggle (light/dark)
+  - Filtering extensions by status (all, active, inactive)
+  - Dynamic rendering of extension list
+
+  No frameworks or libraries used.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <title>Frontend Mentor | Browser extensions manager UI</title>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav>
+      <div id="logo-container"></div>
+      <button class="toogle" id="toggle-theme">
+        <img alt="image toogle theme dark and light" />
+      </button>
+    </nav>
+
+    <!-- Section Main -->
+    <section>
+      <header>
+        <h1>Extensions List</h1>
+        <div class="state-extensions">
+          <button id="btn-all" class="btn-all">All</button>
+          <button id="btn-active" class="btn-active">Active</button>
+          <button id="btn-inactive" class="btn-inactive">Inactive</button>
+        </div>
+      </header>
+
+      <!-- Extensions List -->
+      <main id="list-extensions">
+      </main>
+    </section>
+
+    <script src="/index.js" type="module"></script>
+  </body>
+</html>
