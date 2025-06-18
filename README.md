@@ -10,8 +10,8 @@
 
 ## 🔗 Links
 
-- 🔍 **Repository:** [github.com/hernancoronel/browser-extensions-manager](https://github.com/hernancoronel/browser-extensions-manager)  
-- 🌐 **Live Site:** [hernancoronel.github.io/browser-extensions-manager](https://hernancoronel.github.io/browser-extensions-manager)
+- 🔍 **Repository:** [github.com/hernancoronel/browser-extensions-manager](https://github.com/coronelhernan/browser-extensions-manager)  
+- 🌐 **Live Site:** [hernancoronel.github.io/browser-extensions-manager](https://browser-extensions-manager-2025.netlify.app/)
 
 ---
 
